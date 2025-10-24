@@ -54,14 +54,3 @@ src/main/java/com/peggle/
 ├── MainWindow.java     # Main GUI window (converted from mainwindow.h/cpp)
 └── ThemeManager.java   # Theme management (converted from thememanager.h/cpp)
 ```
-
-## Conversion Notes
-- Qt6 widgets converted to Swing equivalents:
-  - QMainWindow → JFrame
-  - QTabWidget → JTabbedPane
-  - QPushButton → JButton
-  - QLabel → JLabel
-  - QGridLayout → GridLayout
-- Qt's signal-slot system converted to Java ActionListener pattern
-- QRandomGenerator converted to java.util.Random
-- Qt theme system converted to custom Color management
