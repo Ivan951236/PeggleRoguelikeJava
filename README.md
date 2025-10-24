@@ -40,11 +40,3 @@ javac -d build/classes src/main/java/com/peggle/*.java
 # Run
 java -cp build/classes com.peggle.Main
 ```
-
-## Project Structure
-```
-src/main/java/com/peggle/
-├── Main.java           # Application entry point
-├── MainWindow.java     # Main GUI window (converted from mainwindow.h/cpp)
-└── ThemeManager.java   # Theme management (converted from thememanager.h/cpp)
-```
