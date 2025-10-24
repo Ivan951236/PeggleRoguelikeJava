@@ -1,0 +1,54 @@
+plugins {
+    id 'application'
+    id 'java'
+}
+
+group = 'com.peggle'
+version = '1.0.0'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.yaml:snakeyaml:2.2'
+    implementation 'com.formdev:flatlaf:3.4'
+    implementation 'com.formdev:flatlaf-extras:3.4'
+    implementation 'org.kordamp.ikonli:ikonli-core:12.3.1'
+    implementation 'org.kordamp.ikonli:ikonli-swing:12.3.1'
+    implementation 'org.kordamp.ikonli:ikonli-material2-pack:12.3.1'
+    testImplementation 'junit:junit:4.13.2'
+}
+
+application {
+    mainClass = 'com.peggle.Main'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.peggle.Main'
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+// Task to run the application
+task runApp(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'com.peggle.Main'
+}
+
+compileJava {
+    options.encoding = 'UTF-8'
+}
+
+compileTestJava {
+    options.encoding = 'UTF-8'
+}

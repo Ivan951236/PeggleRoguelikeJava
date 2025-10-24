@@ -1,0 +1,14 @@
+mode: duel
+player1Name: Ivan
+player2Name: ''
+theme: DARK
+levels:
+  levelWins: 0
+  lostOnBossLevel: 0
+  feverHundredKs: 0
+  clutches: 0
+  roguelikeWins: 0
+  lostRounds: 0
+  totalMisses: 0
+themeMode: DARK
+themeVariant: orange

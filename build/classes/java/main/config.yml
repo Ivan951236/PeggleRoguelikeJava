@@ -1,0 +1,14 @@
+mode: duel
+player1Name: Player 1
+player2Name: Labubu
+theme: DARK
+themeMode: DARK
+themeVariant: orange
+levels:
+  levelWins: 0
+  lostOnBossLevel: 0
+  feverHundredKs: 0
+  clutches: 0
+  roguelikeWins: 0
+  lostRounds: 0
+  totalMisses: 0
