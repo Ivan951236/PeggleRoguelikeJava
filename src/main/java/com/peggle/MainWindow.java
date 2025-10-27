@@ -96,7 +96,7 @@ public class MainWindow extends JFrame implements ThemeManager.ThemeChangeListen
         inventoryNames.add("Lord Cinderbottom");
         inventoryNames.add("Master Hu");
         
-        // Level names (1-50)
+        // Regular level names (1-38, excluding 11 mini-boss levels)
         String[] levels = {
             "Peggleland", "Slip and Slide", "Bjorn's Gazebo",
             "Das Bucket", "Snow Day", "Birdy's Crib",
@@ -110,8 +110,12 @@ public class MainWindow extends JFrame implements ThemeManager.ThemeChangeListen
             "Baseball", "Vermin", "Holland Oats", "I Heart Flowers",
             "Workin From Home", "Tula's Ride", "70 and Sunny",
             "Win a Monkey", "Dog Pinball", "Spin Again",
-            "Roll 'em", "Five of a Kind", "The Love Moat",
-            "Doom with a View", "Rhombi", "9 Luft Ballons",
+            "Roll 'em", "Five of a Kind"
+        };
+        
+        // Mini-boss level names (indices 39-49)
+        String[] miniBossLevels = {
+            "The Love Moat", "Doom with a View", "Rhombi", "9 Luft Ballons",
             "Twister Sisters", "Spin Cycle", "The Dude Abides",
             "When Pigs Fly", "Yang, Yin", "Zen Frog"
         };
@@ -120,6 +124,10 @@ public class MainWindow extends JFrame implements ThemeManager.ThemeChangeListen
         levelNames.add(""); // index 0 - empty
         for (String level : levels) {
             levelNames.add(level);
+        }
+        // Add mini-boss levels after regular levels
+        for (String miniBoss : miniBossLevels) {
+            levelNames.add(miniBoss);
         }
         
         // Boss names (51-55)
@@ -179,12 +187,12 @@ private void initializeComponents() {
         
         // Create panels for tabs
         inventoryPanel = new JPanel(new GridLayout(1, 2, 10, 10));
-        inventoryPanelP1 = new JPanel(new GridLayout(1, 3, 10, 10));
-        inventoryPanelP2 = new JPanel(new GridLayout(1, 3, 10, 10));
+        inventoryPanelP1 = new JPanel(new GridLayout(1, 2, 10, 10));
+        inventoryPanelP2 = new JPanel(new GridLayout(1, 2, 10, 10));
         inventoryPanel.add(inventoryPanelP1);
         inventoryPanel.add(inventoryPanelP2);
 
-        peggleLevelsPanel = new JPanel(new GridLayout(2, 8, 5, 5));
+        peggleLevelsPanel = new JPanel(new GridLayout(4, 8, 5, 5));
         bossLevelPanel = new JPanel(new GridLayout(1, 1, 10, 10));
         levelsPanel = new JPanel();
         levelsPanel.setLayout(new GridBagLayout());
@@ -278,9 +286,18 @@ private void onGenerateClicked() {
             generateInventoryForPanel(inventoryPanelP1);
         }
         
-        // Generate peggle levels (15 items, 8x2 grid)
-        for (int i = 0; i < 15; i++) {
-            int levelIndex = random.nextInt(levelNames.size() - 1) + 1; // Skip index 0
+        // Generate peggle levels (31 items)
+        for (int i = 0; i < 31; i++) {
+            // Check if this position should be a mini-boss level (1-indexed positions 12, 20, 26 = 0-indexed 11, 19, 25)
+            int levelIndex;
+            if (i == 11 || i == 19 || i == 25) { // Mini-boss positions (0-indexed)
+                // Select from mini-boss levels (indices 39-49 in levelNames)
+                int miniBossIndex = random.nextInt(11) + 39; // 11 mini-boss levels from index 39 to 49
+                levelIndex = miniBossIndex;
+            } else {
+                int regularLevelCount = 39; // levels 1-38 plus index 0 (empty), so indices 1-38 (size 39)
+                levelIndex = random.nextInt(regularLevelCount - 1) + 1; // Skip index 0, use only regular levels (1-38)
+            }
             int invIndex = random.nextInt(inventoryNames.size() - 1) + 1; // Skip index 0
             String text = levelNames.get(levelIndex) + ", " + inventoryNames.get(invIndex);
             JLabel label = createStyledLabel(text);
@@ -495,7 +512,7 @@ private void updateLabelsInPanel(JPanel panel) {
 
     private void generateInventoryForPanel(JPanel panel) {
         panel.removeAll();
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 2; i++) {
             int index = random.nextInt(inventoryNames.size() - 1) + 1;
             String name = inventoryNames.get(index);
             JLabel label = createStyledLabel(name);

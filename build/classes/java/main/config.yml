@@ -3,7 +3,7 @@ player1Name: Player 1
 player2Name: Labubu
 theme: DARK
 themeMode: DARK
-themeVariant: orange
+themeVariant: green
 levels:
   levelWins: 0
   lostOnBossLevel: 0

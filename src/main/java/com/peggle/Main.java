@@ -6,7 +6,6 @@ import com.formdev.flatlaf.FlatLaf;
 
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
-import javax.swing.plaf.FontUIResource;
 
 public class Main {
     public static void main(String[] args) {
