@@ -13,8 +13,6 @@ import java.security.CodeSource;
 import java.util.HashMap;
 import java.util.Map;
 
-// You might be the only one to see this: "https://pastes.fmhy.net/kr3RfG"
-
 public class ConfigManager {
     private static final String CONFIG_FILE_NAME = "config.yml";
 
