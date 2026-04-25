@@ -1,9 +1,9 @@
-mode: duel
-player1Name: Player 1
-player2Name: Labubu
+mode: singleplayer
+player1Name: IvyOS
+player2Name: ''
 theme: DARK
 themeMode: DARK
-themeVariant: green
+themeVariant: red
 levels:
   levelWins: 0
   lostOnBossLevel: 0
