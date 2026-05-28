@@ -13,7 +13,7 @@ This is a Java Swing application. It generates random presets for a Peggle Rogue
 ## Building and Running
 
 ### Requirements
-- Java 11 or higher
+- Java 17 or higher
 - Gradle (included via wrapper)
 
 ### Build Commands
