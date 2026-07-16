@@ -30,13 +30,3 @@ It is a application that generates an preset for the Roguelike Peggle mode, an u
 # Create executable JAR
 ./gradlew jar
 ```
-
-### Manual Java Execution
-If you prefer to run with plain Java:
-```bash
-# Compile
-javac -d build/classes src/main/java/com/peggle/*.java
-
-# Run
-java -cp build/classes com.peggle.Main
-```
