@@ -18,11 +18,6 @@ This is a Java Swing application converted from a C++ Qt6 application. It genera
 
 ## Building and Running
 
-### Optional: Bundle Ubuntu Nerd Font
-- Download "Ubuntu Nerd Font" from Nerd Fonts.
-- Put the TTF at `src/main/resources/fonts/UbuntuNerdFont-Regular.ttf` (or `Ubuntu Nerd Font Regular.ttf`).
-- The app will auto-load it and use it as the global font; if not present, it will try an installed system font.
-
 ### Requirements
 - Java 11 or higher
 - Gradle (included via wrapper)
