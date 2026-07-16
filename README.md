@@ -30,13 +30,3 @@ This is a Java Swing application. It generates random presets for a Peggle Rogue
 # Create executable JAR
 ./gradlew jar
 ```
-
-### Manual Java Execution
-If you prefer to run with plain Java:
-```bash
-# Compile
-javac -d build/classes src/main/java/com/peggle/*.java
-
-# Run
-java -cp build/classes com.peggle.Main
-```
