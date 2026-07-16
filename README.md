@@ -1,12 +1,6 @@
 # Peggle Roguelike Preset Generator
 
-This is a Java Swing application converted from a C++ Qt6 application. It generates random presets for a Peggle Roguelike game.
-
-## Original Language
-**C++** with Qt6 framework
-
-## Converted to
-**Java** with Swing GUI framework
+It is a application that generates an preset for the Roguelike Peggle mode, an unofficial mode to rely on fully rules, it is not a mod to Peggle.
 
 ## Features
 - Random preset generation for inventory, Peggle levels, and boss levels
